@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+        	 xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:local="clr-namespace:DroverXamarin"
+			 xmlns:viewModel="clr-namespace:DroverViewModels"
+             x:Class="DroverXamarin.MainPage">
+
+	<RelativeLayout WidthRequest="10000">
+<RelativeLayout x:Name="parentLayout" >
+
+			<Label.BindingContext>
+				<viewModel:MainPageViewModel/>
+			</Label.BindingContext>
+
+	      <!--The map itself -->
+	      <local:CustomMap
+	      x:Name="map"
+	      IsShowingUser="true"
+	      MapType="Street"
+	      RelativeLayout.WidthConstraint = 
+								"{ConstraintExpression Type=RelativeToParent,
+	                             Property=Width,
+	                             Factor=1}"
+	      RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Height,
+	                             Factor=1}"/>
+	    
+	    
+	    <!--Buttons that sit on top of the map-->
+	    <Image Source="map_pin_web.png" x:Name="map_pin" 
+				 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.38}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.39}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.24}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.15}"/>
+
+	
+					
+
+
+		
+	    <!--Magnifying glass image-->
+	    <Frame x:Name="search_button" OutlineColor="#63a55f"  Padding="10" IsVisible="true"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.83}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.86}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.14}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.079}">
+	      
+	      <Image Source="ic_search_48pt_3x.png" x:Name="search_image"/>
+	    </Frame>
+
+	    <!--Compass image-->
+	    <Frame OutlineColor="#63a55f" Padding="10" x:Name="compass_frame" IsVisible="true"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.83}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.77}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.14}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.079}">
+
+	      <Image Source="ic_my_location_48pt_3x.png" x:Name="compass_image"/>
+	    </Frame>
+
+	    <!--Set pickup location button-->
+	    <Frame OutlineColor="#63a55f"  Padding="20" x:Name="set_pickup_button" IsVisible="true"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.05}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.77}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.76}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.17}">
+	                               <!-- Text="Set Pickup Location" -->
+	      <Label x:Name="set_pickup_label"  Text="Set Pickup Location" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+
+		<!--Confirm pickup location button-->
+	    <Frame OutlineColor="Green"  Padding="20" x:Name="confirm_location_button" IsVisible="false"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.05}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.82}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.4}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.12}">
+
+	      <Label Text="Confirm" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+
+		<!--Cancel pick-up button-->
+	    <Frame OutlineColor="Green"  Padding="20" x:Name="cancel_pickup_button" IsVisible="false"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.55}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.82}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.4}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.12}">
+
+	      <Label Text="Cancel" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+	    
+	             
+
+	    <!--Black box to the right of slide out menu-->
+	    <BoxView x:Name="view_box" Color="Black" IsVisible="False" Opacity=".4"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Width,
+	                             Factor=1}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Height,
+	                             Factor=1}"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Width,
+	                             Factor=0}" />
+
+
+			    
+	    <!--Three bars button to call slide out menu-->                                    <!-- Margin="left,top,right,bottom-->
+
+		<StackLayout
+				RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Width,
+	                             Factor=1}">
+			<Switch x:Name="driver_switch" IsVisible="false" HorizontalOptions="Center" Margin="0,25,0,0" Toggled="Handle_DriverSwitch_Toggled"/>
+		</StackLayout>
+		<Image x:Name="drawer_button" Source="icons_three_bars_web.png" HeightRequest="40" WidthRequest="40" Margin="10,20,0,0"/>
+		
+
+
+
+		<!--Black box that blacks out rest of screen-->
+	    <BoxView x:Name="input_location_blackout_box" Color="Black" IsVisible="False" Opacity=".65"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Width,
+	                             Factor=1}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                             Property=Height,
+	                             Factor=1}"/>
+
+		<!-- Input location pop-up box -->
+		<Frame OutlineColor="Black" x:Name="input_location_box" IsVisible="false"
+				 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.07}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.2}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.86}">
+		
+			<!-- This is a layout that will be displayed when the user wishes to manually search for a location  -->
+			<StackLayout BackgroundColor="White" Spacing="0" Padding="0">
+					<Label Text="Enter Pickup Address" HorizontalTextAlignment="Center" FontSize="18" Margin="0,10,0,0"/>
+					<Entry x:Name="entered_pickup_location" Margin="10,10,10,0" FontSize="10" BackgroundColor="#ddd"/>
+					<Label Text="Please include City and State for accurate results" FontSize="8" FontAttributes="Italic" Margin="0,4,0,0" HorizontalTextAlignment="Center"/>
+
+
+					<StackLayout Orientation="Horizontal" Margin="0,20,0,10">
+						<Label Text="Search" Margin="30,0,0,0" FontSize="14" x:Name="search_for_location_button"/>
+						<Label Text="Cancel" Margin="75,0,0,0" FontSize="14" x:Name="cancel_location_search_button"/>
+					</StackLayout>
+		     </StackLayout>                       
+		</Frame>
+
+
+			
+	  	<!--Driver confirm arrival button-->
+	    <Frame OutlineColor="Green"  Padding="0" x:Name="confirm_arrival_button" IsVisible="false"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.27}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.05}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.46}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.07}">
+
+	      <Label Text="Confirm Arrival" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+
+		<!--Driver confirm dropoff button-->
+	    <Frame OutlineColor="Green"  Padding="0" x:Name="confirm_dropoff_button" IsVisible="false"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.27}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.05}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.46}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.07}">
+
+	      <Label Text="Confirm Drop-Off" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+
+		<!--Rider bottom screen UI-->
+		<Frame Padding="0" IsVisible="false" x:Name="rider_ui"
+				RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.85}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.15}">
+			<RelativeLayout>
+						
+				<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" Padding="0" BackgroundColor="#212121"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}">
+					<Image Source="profile_missing.jpg" Margin="5"/>
+					<StackLayout Padding="0" VerticalOptions="Center">
+						<Label x:Name="driver_pic" Text="Driver Name" WidthRequest="145" LineBreakMode="TailTruncation" TextColor="#fafafa" Opacity="1"  FontSize="26" Margin="5,0,0,0" HorizontalOptions="Start"/>
+						<Label x:Name="dropoff_location_rider" Text="{Binding DropOffLocation}" WidthRequest="145" LineBreakMode="TailTruncation" TextColor="#fafafa" Opacity=".8" FontSize="16" Margin="5,0,0,0" HorizontalOptions="Start">
+
+						</Label>
+					</StackLayout>
+
+				</StackLayout>
+				<Image x:Name="dropoff_location_search" Opacity="0.8" Source="ic_edit_location_white_3x.png" Margin="0,0,0,0" HorizontalOptions="End" HeightRequest="50"
+						RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=.8}"
+			             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                               Property=Height,
+			                               Factor=0.25}"
+			             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                               Property=Height,
+			                               Factor=0.5}"/>	
+			</RelativeLayout>
+		</Frame>
+
+
+		<!--Driver bottom screen UI-->
+		<Frame Padding="0" IsVisible="false" x:Name="driver_ui"
+				RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.85}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.15}">
+			<RelativeLayout>
+						
+				<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" Padding="0" BackgroundColor="#212121"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}">
+					<Image Source="profile_missing.jpg" Margin="5"/>
+					<StackLayout Padding="0" VerticalOptions="Center">
+						<Label x:Name="rider_pic" Text="Rider Name" WidthRequest="145" LineBreakMode="TailTruncation" TextColor="#fafafa" Opacity="1"  FontSize="26" Margin="5,0,0,0" HorizontalOptions="Start"/>
+						<Label x:Name="dropoff_location_driver" Text="{Binding DropOffLocation}" WidthRequest="145" LineBreakMode="TailTruncation" TextColor="#fafafa" Opacity=".8" FontSize="16" Margin="5,0,0,0" HorizontalOptions="Start">
+
+						</Label>		
+					</StackLayout>
+
+				</StackLayout>
+				<Image x:Name="navigate_to_button" Opacity="0.8" Source="ic_map_white_3x.png" Margin="0,0,0,0" HorizontalOptions="End" HeightRequest="50"
+						RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=.8}"
+			             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                               Property=Height,
+			                               Factor=0.25}"
+			             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                               Property=Height,
+			                               Factor=0.5}"/>	
+			</RelativeLayout>
+		</Frame>
+
+
+
+
+
+
+			
+			
+		<!--Set Pickup Location Buttons-->
+		</RelativeLayout>
+
+	<Frame x:Name="searching_view" IsVisible="false" Padding="0"
+		RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=0}"
+             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.75}"
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=1}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.25}">
+		<WebView x:Name="searching_web" BackgroundColor="Aqua" Margin="0"/>
+	</Frame>
+
+
+	<Frame x:Name="view" Padding="0"
+		      IsVisible="false"
+		      BackgroundColor="White"
+		      RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                             Property=Width,
+		                             Factor=0.75}"
+		      RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                             Property=Height,
+		                             Factor=1}"
+			  RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			         Property=Width,
+			         Factor=0}">
+		
+		    <!--Slide out menu-->
+		    <StackLayout>
+		      
+		      
+		          <!--Stack layout containing Profile Photo, Full Namem, and Phone Number-->
+		          <StackLayout
+		            x:Name="profile_view"
+		            BackgroundColor="#63a55f"
+		            Spacing="2">
+		            
+		            
+		          
+					<controls:CircleImage x:Name="profile_pic" Source="profile_missing.jpg" HorizontalOptions="Center" Margin="0,25,0,0" Aspect="AspectFill">
+						<controls:CircleImage.WidthRequest>
+					    	<OnPlatform x:TypeArguments="x:Double"
+						      iOS="70"
+						      Android="70"
+						      WinPhone="75"/>
+						</controls:CircleImage.WidthRequest>
+						<controls:CircleImage.HeightRequest>
+						    <OnPlatform x:TypeArguments="x:Double"
+						      iOS="70"
+						      Android="70"
+						      WinPhone="75"/>
+					    </controls:CircleImage.HeightRequest>
+					</controls:CircleImage>
+						
+		            <Label x:Name="user_name_label" Text="Full Name" HorizontalOptions="Center" Margin="0,6,0,0" FontSize="12" TextColor="White"/>
+		            <Label x:Name="user_phone_label" Text="Phone Number" HorizontalOptions="Center" Margin="0,0,0,4" FontSize="12" TextColor="White"/>
+		            
+		          </StackLayout>
+		      
+		      
+		          <!--Grid definition-->
+		          <Grid>
+		            <Grid.RowDefinitions>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		              <RowDefinition Height="40"/>
+		            </Grid.RowDefinitions>
+
+		            <Grid.ColumnDefinitions>
+		              <ColumnDefinition Width="*"/>
+		              <ColumnDefinition Width="4*"/>
+		            </Grid.ColumnDefinitions>
+		        
+		            <!--Options that appear on the slide out menu-->
+
+		            <Image x:Name="payment_picture" Source="icons_credit_card_48pt.png" Grid.Row="0" Grid.Column="0" Margin="8"/>
+		            <Label x:Name="payment_button" Text="Payment" Grid.Row="0" Grid.Column="1" TextColor="Black" VerticalOptions="Center" />
+
+		            <Image x:Name="help_picture" Source="icons_help_48pt.png" Grid.Row="1" Grid.Column="0" Margin="8"/>
+		            <Label x:Name="help_button" Text="Help" Grid.Row="1" Grid.Column="1" TextColor="Black" VerticalOptions="Center" />
+
+		            <Image x:Name="about_picture" Source="icons_info_48pt.png" Grid.Row="2" Grid.Column="0" Margin="8"/>
+		            <Label x:Name="about_button" Text="About Drover" TextColor="Black" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" />
+
+		            <Image x:Name="history_picture" Source="icons_schedule_48pt.png" Grid.Row="3" Grid.Column="0" Margin="8"/>
+		            <Label x:Name="history_button" Text="History" Grid.Row="3" Grid.Column="1" TextColor="Black" VerticalOptions="Center" />
+
+		            <Image x:Name="sign_out_picture" Source="icons_cancel_48pt.png" Grid.Row="4" Grid.Column="0" Margin="8"/>
+		            <Label x:Name="sign_out_button" Text="Sign Out" Grid.Row="4" Grid.Column="1" TextColor="Black" VerticalOptions="Center"/>
+		          </Grid>
+		    </StackLayout>
+
+	    </Frame>
+
+
+
+
+
+		<!--Profile Picture stuff-->
+  	    <BoxView x:Name="profile_pic_blackout_box" Color="Black"  Opacity=".65" IsVisible="false" 
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1}"/>	
+			
+	    <Frame BackgroundColor="White" Padding="1" x:Name="top_box" IsVisible="false" HasShadow="false"
+				 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.05}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.68}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.9}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.2}">   
+
+
+			<RelativeLayout>
+				
+
+				<Label Text="Choose picture from library" FontSize="18" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" 
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"/>
+				<BoxView Color="Transparent" x:Name="choose_pic_button"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"/>
+
+				<Label Text="Take a picture" FontSize="18" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	            			RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.49}"
+							RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.51}"/>
+				<BoxView Color="Transparent" x:Name="take_pic_button"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"
+							RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.51}"/>
+					
+				<BoxView HeightRequest="1" Color="Black"
+						RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	             		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.02}"
+						RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.49}"/>
+			</RelativeLayout>
+
+
+		</Frame>
+			 
+		<Frame BackgroundColor="White" Padding="3" x:Name="cancel_button" IsVisible="false" HasShadow="false"
+			RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=0.05}"
+             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.9}"
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=0.9}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.08}">
+			<Label Text="Cancel" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
+		</Frame>
+
+		<!--Driver confirm arrival button-->
+	    <Frame OutlineColor="Green"  Padding="0" x:Name="cancel_driver_search_button" IsVisible="false"
+	             RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.27}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.05}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.46}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.07}">
+
+	      <Label Text="Cancel Search" FontSize="16" VerticalOptions="Center" HorizontalOptions="Center"/>
+	    </Frame>
+	    </RelativeLayout>
+
+
+
+
+
+</ContentPage>

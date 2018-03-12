@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DroverXamarin.PaymentPage">
+	<ContentPage.Content>
+		<RelativeLayout>
+			<Image x:Name="back_arrow_button" Source="ic_arrow_back_3x.png" HeightRequest="40" WidthRequest="40" Margin="10,20,0,0"/>
+			<WebView x:Name="payment_view" Navigating="Handle_Navigating" 
+		             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.1}"
+		             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=1}"/>
+		</RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="DroverXamarin.RideListPage">
+	<ContentPage.Content></ContentPage.Content>
+		<RelativeLayout x:Name="ride_list_page">
+			<BoxView Color="#63a55f"
+			         RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=1}"
+			         RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.1}"/>
+		
+			<Image x:Name="back_arrow_button" Source="icons_arrow_back_white_3x.png" Aspect="AspectFit"
+						 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.05}"
+						 RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.035}"
+				         RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=.01}"/>
+
+			<Label x:Name="ride_date" HorizontalTextAlignment="Center" TextColor="White" VerticalOptions="CenterAndExpand"
+
+						 RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=.4}"
+						 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.08}"
+				         RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=.3}"
+						RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.02}"
+				/>
+
+			<ScrollView x:Name="scroll_view"
+						RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=1}"
+						 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.9}"
+						RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.1}">
+				        
+			</ScrollView>
+
+			
+		</RelativeLayout>
+	
+
+	<!--
+	<RelativeLayout>
+		<BoxView Color="#63a55f"
+			         RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=1}"
+			         RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.1}"/>
+		
+		<Image x:Name="back_arrow_button" Source="icons_arrow_back_white_3x.png" Aspect="AspectFit"
+					 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.05}"
+					 RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.035}"
+			         RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.01}"/>
+
+		<Label x:Name="ride_date" HorizontalTextAlignment="Center" TextColor="White" VerticalOptions="CenterAndExpand"
+
+					 RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.4}"
+					 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.08}"
+			         RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.3}"
+				RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.02}"
+			/>
+
+		<ScrollView
+					RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=1}"
+					 RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+									 Factor=0.9}"
+					RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.1}">
+			
+			<StackLayout x:Name="ride_stack" Padding="0"  Spacing="2" Margin="2,2,0,0" VerticalOptions="FillAndExpand">
+				
+
+
+
+			</StackLayout>
+			
+		</ScrollView>
+
+	</RelativeLayout>
+	-->
+</ContentPage>

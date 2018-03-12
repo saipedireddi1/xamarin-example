@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DroverXamarin.InitPage">
+	<ContentPage.Content>
+		<RelativeLayout>
+		<WebView x:Name="splash_screen"
+				RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Width,
+		                         Factor=5}"
+				RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Height,
+		                         Factor=5}"
+				RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Width,
+		                         Factor=-2}"
+				RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Height,
+		                         Factor=-2}">
+
+		</WebView>
+		</RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>

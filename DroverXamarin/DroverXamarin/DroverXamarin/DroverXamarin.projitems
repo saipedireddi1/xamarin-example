@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4ef4f703-639c-42a1-922a-07601d2fb621</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>DroverXamarin</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)LaunchPage.xaml.cs">
+      <DependentUpon>LaunchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SignInPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\FirebaseClasses\FireAuth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\FirebaseClasses\FireCore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\UIInstance.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RideListPage.xaml.cs">
+      <DependentUpon>RideListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\Time.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InitPage.xaml.cs">
+      <DependentUpon>InitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\FirebaseClasses\FireDatabase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProfilePicPage.xaml.cs">
+      <DependentUpon>ProfilePicPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\ICameraSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\ImageResizer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PaymentPage.xaml.cs">
+      <DependentUpon>PaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\IRegisterDriverMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\Networking\GenericSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RatingPage.xaml.cs">
+      <DependentUpon>RatingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\ViewModels\MainPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\DroverLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\Instances.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\RideListEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\RideStack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\FontSizeCalculator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\ScreenSize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\CustomMap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VariousClasses\CustomPin.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)CalendarPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RideListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)InitPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)animation.html" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ProfilePicPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)BrainTree.html" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SEARCHING.html" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RatingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VariousClasses\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VariousClasses\FirebaseClasses\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VariousClasses\Networking\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VariousClasses\ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)LaunchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SignInPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)HelpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

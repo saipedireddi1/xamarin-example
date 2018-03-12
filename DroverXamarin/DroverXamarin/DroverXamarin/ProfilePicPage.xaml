@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="DroverXamarin.ProfilePicPage"
+			 xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+	<ContentPage.Content>
+		
+		<RelativeLayout BackgroundColor="#eaeaea">
+			<BoxView Color="#63a55f"
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=.3}"/>
+    	<Image x:Name="back_arrow_button" Source="icons_arrow_back_white_3x.png" HeightRequest="40" WidthRequest="40" Margin="10,15,0,0"/>
+
+
+		<controls:CircleImage Source="profile_missing.jpg" HorizontalOptions="Center" x:Name="profile_pic" 
+					RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+                         Property=Width,
+                         Factor=0.5,
+						 Constant=-80}"
+         			RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                         Property=Height,
+                         Factor=.3,
+						 Constant=-80}"
+					>
+
+             
+				<controls:CircleImage.WidthRequest>
+			    	<OnPlatform x:TypeArguments="x:Double"
+				      iOS="160"
+				      Android="160"
+				      WinPhone="160"/>
+				</controls:CircleImage.WidthRequest>
+				<controls:CircleImage.HeightRequest>
+				    <OnPlatform x:TypeArguments="x:Double"
+				      iOS="160"
+				      Android="160"
+				      WinPhone="160"/>
+			    </controls:CircleImage.HeightRequest>
+		</controls:CircleImage>
+
+		<Image Source="camera_circle.png" x:Name="profile_pic_edit_button" HeightRequest="40" WidthRequest="40"
+					RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+                         Property=Width,
+                         Factor=0.5,
+						 Constant=40}"
+         			RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                         Property=Height,
+                         Factor=.3,
+						 Constant=30}"
+					/>
+			
+
+		<!--Black box that blacks out rest of screen-->
+  	    <BoxView x:Name="profile_pic_blackout_box" Color="Black"  Opacity=".65" IsVisible="false" 
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=1}"/>	
+			
+	    <Frame BackgroundColor="White" Padding="1" x:Name="top_box" IsVisible="false" HasShadow="false"
+				 RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.05}"
+	             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.68}"
+	             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=0.9}"
+	             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.2}">   
+
+
+			<RelativeLayout>
+				
+
+				<Label Text="Choose picture from library" FontSize="18" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" 
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"/>
+				<BoxView Color="Transparent" x:Name="choose_pic_button"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"/>
+
+				<Label Text="Take a picture" FontSize="18" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	            			RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.49}"
+							RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.51}"/>
+				<BoxView Color="Transparent" x:Name="take_pic_button"
+							RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Width,
+		                               Factor=1}"
+		            		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.49}"
+							RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                               Property=Height,
+		                               Factor=0.51}"/>
+					
+				<BoxView HeightRequest="2" Color="Black"
+						RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Width,
+	                               Factor=1}"
+	             		RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.02}"
+						RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+	                               Property=Height,
+	                               Factor=0.49}"/>
+			</RelativeLayout>
+
+
+		</Frame>
+			 
+		<Frame BackgroundColor="White" Padding="3" x:Name="cancel_button" IsVisible="false" HasShadow="false"
+			RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=0.05}"
+             RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.9}"
+             RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Width,
+                               Factor=0.9}"
+             RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+                               Property=Height,
+                               Factor=0.08}">
+			<Label Text="Cancel" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center"/>
+		</Frame>
+
+		
+
+
+
+
+		
+		</RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>

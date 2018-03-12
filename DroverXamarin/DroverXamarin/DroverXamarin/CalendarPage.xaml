@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DroverXamarin.CalendarPage">
+	<ContentPage.Content>
+	</ContentPage.Content>
+
+	<RelativeLayout>
+			<BoxView Color="#63a55f"
+			         RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=1}"
+			         RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.1}"/>
+		
+			<Image x:Name="back_arrow_button" Source="icons_arrow_back_white_3x.png" HeightRequest="40" WidthRequest="40" Margin="10,15,0,0"/>
+
+			<Label x:Name="date_label" HorizontalOptions="Center" FontSize="14" VerticalTextAlignment="Center"
+					RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.38}"
+					RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.31}"
+					RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.18}"/>
+			<Image x:Name="left_arrow" Source="ic_keyboard_arrow_left.png" 
+					RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.06}"
+			        RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.09}"
+					RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.15}"
+					RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+				                     Factor=.05}"/>
+			<Image x:Name="right_arrow" Source="ic_keyboard_arrow_right.png" 
+						RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=.06}"
+				        RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.09}"
+						RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Height,
+				                         Factor=.149}"
+						RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+				                         Property=Width,
+				                         Factor=.89}"/>
+		
+			<Grid  x:Name="date_grid" 
+					RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.9}"
+			        RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.5}"
+					RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Height,
+			                         Factor=.25}"
+					RelativeLayout.XConstraint = "{ConstraintExpression Type=RelativeToParent,
+			                         Property=Width,
+			                         Factor=.05}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Label Text="S" Grid.Row="0" Grid.Column="0"/>
+				<Label Text="M" Grid.Row="0" Grid.Column="1"/>
+				<Label Text="T" Grid.Row="0" Grid.Column="2"/>
+				<Label Text="W" Grid.Row="0" Grid.Column="3"/>
+				<Label Text="R" Grid.Row="0" Grid.Column="4"/>
+				<Label Text="F" Grid.Row="0" Grid.Column="5"/>
+				<Label Text="S" Grid.Row="0" Grid.Column="6"/>
+			
+			</Grid>
+
+	</RelativeLayout>
+
+
+</ContentPage>

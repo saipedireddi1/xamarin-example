@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DroverXamarin.HelpPage">
+	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+	<RelativeLayout>
+		<BoxView Color="#63a55f"
+		         RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Width,
+		                         Factor=1}"
+		         RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Height,
+		                         Factor=.1}"/>
+		<Image x:Name="back_arrow_button" Source="icons_arrow_back_white_3x.png" HeightRequest="40" WidthRequest="40" Margin="10,15,0,0"/>
+
+		<!-- Droverrideshare.com/vision -->
+		<ScrollView
+				RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Width,
+		                         Factor=1}"
+				RelativeLayout.HeightConstraint = "{ConstraintExpression Type=RelativeToParent,
+		                         Property=Height,
+		                         Factor=0.9}"
+		        
+				RelativeLayout.YConstraint = "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.1}">
+			<StackLayout x:Name="stack_layout"
+			 Spacing="6">
+				<Label Text="Contact Us" FontSize="24" Margin="0,2,0,0" HorizontalOptions="Center" />
+				<BoxView Margin="0,0,0,0" HeightRequest="2" Color="Black" />
+				<Label Text="Phone: 555-555-5555" FontSize="20" HorizontalOptions="Center" />
+				<Label Text="Email:JohnSmith@drover.com" FontSize="20" HorizontalOptions="Center" />
+
+				<Label Text="FAQ" FontSize="24" Margin="0,50,0,0" HorizontalOptions="Center" />
+				<BoxView Margin="0,0,0,0" HeightRequest="2" Color="Black" />
+
+				<Label Text="Q: How do I request a ride?"  FontAttributes="Bold"/>
+				<Label Text="A: After inputting a payment method you can request a ride by:"  />
+				<Label Text="1. Navigating to the main screen which has the map displayed." Margin="30,0,0,0" />
+				<Label Text="2. Setting your pick-up location by either dragging the pin over it or searching for it by name. " Margin="30,0,0,0"   />
+				<Label Text="3. Click the box labeled Bring a Drover" Margin="30,0,0,0" />
+
+				<Label Text="Q: How much will my ride cost?"  FontAttributes="Bold" Margin="0,20,0,0"/>
+				<Label Text="A: The cost of a Drover is determined by the distance of the ride and how long it takes. The total price will be:"  />
+				<Label Text="$1.80 per mile + $0.30 per minute + $4.00 base fee + $1.55 safety fee" FontSize="16" HorizontalOptions="Center" Margin="0,15,0,0"/>
+
+				
+				
+		
+
+			</StackLayout>
+		</ScrollView>
+	</RelativeLayout>
+  
+</ContentPage>
